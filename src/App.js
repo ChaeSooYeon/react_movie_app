@@ -6,7 +6,7 @@ const foodILike = [
     id:1,
     name:"kimchi",
     image:"https://kstory365.files.wordpress.com/2015/01/kimchi-01-cabbage.jpg",
-    rating:5
+   // rating:5
   },
   {
     id:2,
@@ -28,25 +28,28 @@ const foodILike = [
   },
 ]
 
-function Food ({name, image}){
+function Food ({name, image, rating}){
   return(
     <div>
       <h3>I like {name}</h3>
+      <h4>{rating}/5.0</h4>
       <img src={image} alt={name} width="500px" />
     </div>
   );
  }
 
-function renderFood(dish){
-  console.log(dish); //-> keyerror
-  return <Food key={dish.id} name={dish.name} image={dish.image} />
+ Food.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  rating: PropTypes.number
 }
 
 function App() {
   return (
     <div>
-      {console.log(foodILike.map(renderFood))}
-      {foodILike.map(renderFood)}
+      {foodILike.map(dish => (
+        <Food key={dish.id} name={dish.name} image={dish.image} rating={dish.rating} />
+      ))}
     </div>
   );
 }
