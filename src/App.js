@@ -16,7 +16,7 @@ import PropTypes from "prop-types";
 
 
 class App extends React.Component{
-  state = {
+  state = { 
     count: 0
   };
 // current :  state를 set할때, react에서 외부의 상태에 의존하지 않는 가장 좋은 방법
