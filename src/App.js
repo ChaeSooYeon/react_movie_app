@@ -14,7 +14,7 @@ const foodILike = [
     image:"https://kstory365.files.wordpress.com/2015/01/kimchi-01-cabbage.jpg",
     rating:4
   },
-  {
+  { 
     id:3,
     name:"bulgogi",
     image:"https://kstory365.files.wordpress.com/2015/01/kimchi-01-cabbage.jpg",
