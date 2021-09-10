@@ -1,7 +1,8 @@
 import React from "react";
-import { BrowserRouter, HashRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import About from "./routes/About";
 import Home from "./routes/Home";
+import Detail from "./routes/Detail"
 import Navigation from "./componetns/Navigation";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Navigation />
         <Route path="/" exact={true} component={Home} />
         <Route path="/about" component={About} />
+        <Route path="/movie-detail" component={Detail} />
       </HashRouter>
       {/* BrowserRouter : url에 해시(#)가 안붙음. But,github pages에 올리기에는 HashRouter가 쉬움 */}
       {/* <BrowserRouter>

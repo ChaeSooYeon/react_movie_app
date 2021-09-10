@@ -1,9 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./Movie.css";
 
-function Movie({year, title, summary, poster, genres}){
-    return (
+function Movie({ year, title, summary, poster, genres }) {
+  return (
+    <Link
+      to={{
+        pathname: "/movie-detail",
+        state: {
+          year,
+          title,
+          summary,
+          poster,
+          genres,
+        },
+      }}
+    >
       <div className="movie">
         <img src={poster} alt={title} />
         <div className="movie_data">
@@ -11,22 +24,25 @@ function Movie({year, title, summary, poster, genres}){
           <h5 className="movie_year">{year}</h5>
           <ul className="genres">
             {genres.map((genre, index) => (
-              <li key={index} className="genres_genre">{genre}</li>
+              <li key={index} className="genres_genre">
+                {genre}
+              </li>
             ))}
           </ul>
-          <summary className="movie_summary">{summary.slice(0,180)}</summary>
+          <summary className="movie_summary">{summary.slice(0, 180)}</summary>
         </div>
       </div>
-    );
+    </Link>
+  );
 }
 
 Movie.propTypes = {
-    id: PropTypes.number.isRequired,
-    year: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
-    poster: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string).isRequired
-}
+  id: PropTypes.number.isRequired,
+  year: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  poster: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default Movie;
